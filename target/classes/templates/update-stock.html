@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Stock Update</title>
+<style>
+body {
+           font-family: Arial, sans-serif;
+           display: flex;
+           flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        } 
+        
+        main{
+           flex: 1;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items:center;
+           color: #00356B;
+           font-size: 20px;
+              }
+              
+  
+  header, footer {
+            width: 100%;
+            background-color: #00356B;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            
+        }
+    
+</style>
+</head>
+<body>
+<header> <h1> Stock Update Form</h1></header>
+<main>
+    <form action="/update-stock" method="post">
+    <input type="hidden" name="stockId" th:value="${stock.id}">
+    
+    <label for="stock">Stock Quantity:</label>
+    <input type="text" id="stockQuantity" name="stockQuantity" th:value="${stock.stockQuantity}">
+    <button type="submit">Update Stock</button>
+  
+    </form>
+</main>
+ <footer>
+        <p>&copy; 2024 Product Tracking System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

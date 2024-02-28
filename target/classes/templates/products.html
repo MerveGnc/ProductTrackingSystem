@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    
+    <style>
+    h1{
+    text-align: center;
+    color:#fff;
+    }
+    
+    table {
+    border-spacing: 20px;
+    border-collapse: collapse; /* Hücre sınırlarını birleştir */
+    border: 2px solid #000; /* Tablo etrafına çizgi ekle */
+    overflow: hidden; /* Tablo etrafına çizgi ekle */
+    border-radius: 10px;
+    
+    }
+    th{
+    color:#00538C;
+    font-weight: bold;
+    }
+    
+    th, td {
+    border: 1px solid #000; /* Hücreler arasına çizgi ekle */
+    padding: 8px; /* Hücre içeriğine boşluk ekle */
+}
+
+     .search-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .search-input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        
+            header, footer {
+            width: 100%;
+            background-color: #00356B;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            
+        }
+        
+            .menu-container {
+    font-family: "Times New Roman", Times, serif;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    transform: translateY(-30%);
+    color: #fff;
+    padding: 10px;
+    transition: width 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    cursor: pointer;
+}
+
+.menu-items {
+    display: none;
+}
+
+.menu-items a {
+    display: block;
+    color: #A4DDED;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #00356B;
+}
+
+.menu-items a:hover {
+    background-color: #5D8AA8;
+}
+        
+        
+    </style>
+</head>
+<body>
+    <header><h1>Product List</h1></header>
+   <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by product name...">
+    </div>
+    
+    <div class="filter-container">
+        <select id="categoryFilter" class="filter-select">
+            <option value="">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Home Appliances">Home Appliances</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Books">Books</option>
+            <option value="Sports">Sports</option>
+            <option value="Beauty">Beauty</option>
+            <option value="Toys">Toys</option>
+            <option value="Food">Food</option>
+            <option value="Stationery">Stationery</option>
+        </select>
+    </div>
+    <div class="product">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Stock Quantity</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                 <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.stockQuantity}"></td>
+                <td th:text="${product.createdAt}"></td>
+                <td th:text="${product.updatedAt}"></td>
+                <td th:if="${product.category != null}" th:text="${product.category.name}"></td>
+                
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+     <div class="menu-container">
+        <div class="menu-toggle" onclick="toggleMenu()">
+        <span class="menu-icon">&#9776;</span>MENU</div>
+        <div class="menu-items">
+            <a href="/home">Home</a>
+            <a href="/products">Products</a>
+            <a href="/categories">Categories</a>
+            <a href="/store">Stores</a>
+            <a href="/about">About Us</a>
+            <a href="/management">Management</a>
+        </div>
+    </div>
+     <footer>
+        <p>&copy; 2024 Product Tracking System. All rights reserved.</p>
+    </footer>
+    
+     <script>
+        // Arama çubuğunu seç
+        const searchInput = document.getElementById('searchInput');
+
+        // Kategori filtresini seç
+        const categoryFilter = document.getElementById('categoryFilter');
+
+        // Arama çubuğu değeri değiştiğinde
+        searchInput.addEventListener('input', filterProducts);
+
+        // Kategori filtresi değiştiğinde
+        categoryFilter.addEventListener('change', filterProducts);
+
+        // Ürünleri filtrele
+        function filterProducts() {
+            const searchText = searchInput.value.toLowerCase(); // Arama çubuğundaki metin
+            const selectedCategory = categoryFilter.value.toLowerCase(); // Seçilen kategori
+
+            // Tablodaki her satırı kontrol et
+            document.querySelectorAll('tbody tr').forEach(function(row) {
+                const productName = row.querySelector('td:nth-child(2)').innerText.toLowerCase(); // Ürün ismi
+                const categoryName = row.querySelector('td:nth-child(8)').innerText.toLowerCase(); // Kategori ismi
+
+                // Arama metni ve kategoriye göre filtrele
+                const isTextMatch = productName.includes(searchText) || searchText === '';
+                const isCategoryMatch = categoryName.includes(selectedCategory) || selectedCategory === '';
+
+                // Eğer her iki filtre de eşleşirse satırı göster, değilse gizle
+                row.style.display = isTextMatch && isCategoryMatch ? '' : 'none';
+            });
+        }
+
+     function toggleMenu() {
+            var menuItems = document.querySelector('.menu-items');
+            menuItems.style.display = (menuItems.style.display === 'block') ? 'none' : 'block';
+        }
+
+    </script>
+</body>
+</html>

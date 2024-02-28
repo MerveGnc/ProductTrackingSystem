@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Category List</title>
+<style>h1{
+    text-align: center;
+    color:#fff;
+    }
+    
+    table {
+    border-spacing: 20px;
+    border-collapse: collapse; /* Hücre sınırlarını birleştir */
+    border: 2px solid #000; /* Tablo etrafına çizgi ekle */
+    overflow: hidden; /* Tablo etrafına çizgi ekle */
+    border-radius: 10px;
+    
+    }
+    th{
+    color:#00538C;
+    font-weight: bold;
+    }
+    
+    th, td {
+    border: 1px solid #000; /* Hücreler arasına çizgi ekle */
+    padding: 8px; /* Hücre içeriğine boşluk ekle */
+}
+     header, footer {
+            width: 100%;
+            background-color: #00356B;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            
+        }
+    .menu-container {
+    font-family: "Times New Roman", Times, serif;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    transform: translateY(-30%);
+    color: #fff;
+    padding: 10px;
+    transition: width 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    cursor: pointer;
+}
+
+.menu-items {
+    display: none;
+}
+
+.menu-items a {
+    display: block;
+    color: #A4DDED;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #00356B;
+}
+
+.menu-items a:hover {
+    background-color: #5D8AA8;
+}
+
+</style>
+</head>
+<body>
+<header><h1>Category List</h1></header>
+<div class=category>
+        <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+         <tbody>
+            <tr th:each="category : ${categories}">
+                <td th:text="${category.id}"></td>
+                <td th:text="${category.name}"></td>
+                <td th:text="${category.description}"></td>
+                <td th:text="${category.createdAt}"></td>
+                <td th:text="${category.updatedAt}"></td>
+            </tr>
+        </tbody>
+         </table>
+</div>
+
+  <div class="menu-container">
+        <div class="menu-toggle" onclick="toggleMenu()">
+        <span class="menu-icon">&#9776;</span>MENU</div>
+        <div class="menu-items">
+            <a href="/home">Home</a>
+            <a href="/products">Products</a>
+            <a href="/categories">Categories</a>
+            <a href="/store">Stores</a>
+             <a href="/about">About Us</a>
+            <a href="/management">Management</a>
+        </div>
+    </div>
+    
+      <footer>
+        <p>&copy; 2024 Product Tracking System. All rights reserved.</p>
+    </footer>
+    
+     <script>
+        function toggleMenu() {
+            var menuItems = document.querySelector('.menu-items');
+            menuItems.style.display = (menuItems.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+</html>

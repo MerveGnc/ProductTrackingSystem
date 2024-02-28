@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Tracking System</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            
+           display: flex;
+           flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        } 
+        
+        main{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #00356B;
+           
+              }
+        
+        
+        header, footer {
+            width: 100%;
+            background-color: #00356B;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            
+        }
+      
+        .list {
+            margin-bottom: 10px;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            margin:60px;
+             
+        }
+        
+        .bubble1{
+            background-color:#00538C;
+            color: #fff;
+            padding: 50px 30px;
+            border-radius: 50%;
+            text-decoration: none;
+           margin:10px;
+        }
+        
+        .bubble2{
+            background-color: #0077c0;
+            color: #fff;
+            padding: 50px 25px;
+            border-radius: 50%;
+            text-decoration: none;
+           margin:10px;
+        }
+        
+        .bubble3{
+            background-color: #6CB4EE;
+            color: #fff;
+            padding: 50px 40px;
+            border-radius: 50%;
+            text-decoration: none;
+           margin:10px;
+        }
+        
+        .bubble4{
+            background-color: #ADD8E6;
+            color: #fff;
+            padding: 50px 15px;
+            border-radius: 50%;
+            text-decoration: none;
+           margin:10px;
+        }
+        
+        .bubble5{
+            background-color: #AFEEEE;
+            color: #fff;
+            padding: 50px 40px;
+            border-radius: 50%;
+            text-decoration: none;
+           margin:10px;
+        }
+        
+        .bubble:hover {
+            background-color: #ADD8E6;
+        }
+        
+        @media only screen and (max-width: 850px) {
+          .list {
+            display:flex;
+            flex-direction: column;
+            padding: 0;
+            justify-content: center;
+            margin:10px;            
+        }   
+         }
+   .logout-link {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    z-index: 999;
+}
+a {
+    text-decoration: none; 
+    color: #fff;
+}
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Product Tracking System</h1>
+    </header>
+    
+    <main>
+        <h2>Welcome to Product Tracking System</h2>
+        
+        <p>You are successfully logged in. You can now access the features of our system:</p>
+       <p class=list>
+            <a href="/products" class="bubble1">Products</a>
+            <a href="/categories" class="bubble2"> Categories</a>
+            <a href="/store" class="bubble3"> Stores</a>
+            <a href="/management" class="bubble4"> Management</a>
+            <a href="/about" class="bubble5">About </a>
+            
+       </p>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Product Tracking System. All rights reserved.</p>
+    </footer>
+    
+    <div class="logout-link">
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>

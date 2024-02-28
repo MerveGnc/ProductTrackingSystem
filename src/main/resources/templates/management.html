@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Management Page</title>
+ <style> 
+        body {
+           font-family: Arial, sans-serif;
+           display: flex;
+           flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        } 
+        
+        main{
+            flex: 1;
+            display: flex;
+           justify-content: center;
+            color: #00356B;
+              }
+        
+        
+        header, footer {
+            width: 100%;
+            background-color: #00356B;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            
+        }
+        
+        .list {
+            display:flex;
+            font-size:23px;
+        }
+        
+        .bubble1{
+            display:flex;
+            background-color:#0077c0;
+            color: #fff;
+            padding: 50px 35px;
+            border-radius: 50%;
+            text-decoration: none;
+            align-self:flex-start;
+            margin-top:20px;
+        }
+         .bubble2{
+            background-color:#00416A;
+            color: #fff;
+            padding: 110px 90px;
+            border-radius: 50%;
+            text-decoration: none;
+            align-self:center;
+            margin:40px;
+           
+        }
+        .bubble3{
+            background-color:#4682B4;
+            color: #fff;
+            padding: 50px 35px;
+            border-radius: 50%;
+            text-decoration: none;
+            align-self:flex-end;
+           
+        }
+        
+        .bubble4{
+            background-color:#ADD8E6;
+            color: #fff;
+            padding: 80px 70px;
+            border-radius: 50%;
+            text-decoration: none;
+            align-self:flex-start;
+            margin-top:20px;
+        }
+        
+            .menu-container {
+    font-family: "Times New Roman", Times, serif;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    transform: translateY(-30%);
+    color: #fff;
+    padding: 10px;
+    transition: width 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    cursor: pointer;
+}
+
+.menu-items {
+    display: none;
+}
+
+.menu-items a {
+    display: block;
+    color: #A4DDED;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #00356B;
+}
+
+.menu-items a:hover {
+    background-color: #5D8AA8;
+}
+
+ @media only screen and (max-width: 900px) {
+ .bubble1{
+           
+            background-color:#0077c0;
+            color: #fff;
+            padding: 60px 45px;
+            border-radius: 50%;
+            text-decoration: none;
+            text-align:center;
+
+        }
+        
+         .bubble2{
+            background-color:#00416A;
+            color: #fff;
+            padding: 50px 35px;
+            border-radius: 50%;
+            text-decoration: none;
+            text-align:center;
+           
+        }
+        
+        .bubble3{
+            background-color:#4682B4;
+            color: #fff;
+            padding: 50px 35px;
+            border-radius: 50%;
+            text-decoration: none;
+            text-align:center;
+           
+        }
+        
+        .bubble4{
+            background-color:#ADD8E6;
+            color: #fff;
+            padding: 50px 35px;
+            border-radius: 50%;
+            text-align:center;
+           
+        }
+}
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Management</h1>
+    </header>
+    
+    <main>
+       
+         <p class=list>
+            <a href="/stockManagement" class="bubble1">Stock </a>
+            <a href="/update" class="bubble2">Update <br>Product </a>
+            <a href="/delete-product" class="bubble3">Delete  <br>Product </a>
+            <a href="/new-product" class="bubble4">New <br> Product </a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Product Tracking System. All rights reserved.</p>
+    </footer>
+    
+     <div class="menu-container">
+        <div class="menu-toggle" onclick="toggleMenu()">
+        <span class="menu-icon">&#9776;</span>MENU</div>
+        <div class="menu-items">
+            <a href="/home">Home</a>
+            <a href="/products">Products</a>
+            <a href="/categories">Categories</a>
+            <a href="/store">Stores</a>
+            <a href="/about">About Us</a>
+            <a href="/management">Management</a>
+        </div>
+    </div>
+    
+     <script src="script.js"></script>
+    
+    <script>
+        function toggleMenu() {
+            var menuItems = document.querySelector('.menu-items');
+            menuItems.style.display = (menuItems.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>About Us </title>
+<style>
+   body {
+           font-family: Arial, sans-serif;
+           display: flex;
+           flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        } 
+    
+    main{
+            flex: 1;
+            display: flex;
+           justify-content: center;
+           align-items: center;
+            color: #00356B;
+            padding:10px;
+            font-size:20px;
+            margin-left:10px;
+              }  
+  header, footer {
+            width: 100%;
+            background-color: #00356B;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        
+    .menu-container {
+    font-family: "Times New Roman", Times, serif;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    transform: translateY(-30%);
+    color: #fff;
+    padding: 10px;
+    transition: width 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    cursor: pointer;
+}
+
+.menu-items {
+    display: none;
+}
+
+.menu-items a {
+    display: block;
+    color: #A4DDED;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #00356B;
+}
+
+.menu-items a:hover {
+    background-color: #5D8AA8;
+}
+
+</style>
+</head>
+<body>
+<header> <h1> About Us</h1></header>
+<main>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu tellus eu nulla tincidunt feugiat at et elit. Mauris vel libero risus. Etiam ante risus, laoreet nec felis eu, pulvinar auctor ante. Proin commodo lectus orci, nec iaculis enim mollis quis. Duis tempus nibh orci, at commodo metus maximus at. Integer eu est eu urna vehicula pharetra. Nunc tincidunt sed lorem et luctus. Integer sed libero at ante cursus luctus. Duis tincidunt semper tempus. Sed nec massa accumsan, dapibus ante in, molestie tellus. Phasellus porta dolor ultricies augue suscipit volutpat. Integer feugiat ante vel nunc pharetra, eu aliquet elit porttitor. Praesent hendrerit, tortor at varius tristique, metus ante convallis diam, vitae vulputate nunc orci id dui.
+
+Quisque sit amet lacinia erat, nec sollicitudin lorem. Quisque ut elementum nunc. Aliquam bibendum ex ipsum, et rhoncus libero tincidunt et. Donec iaculis tellus et auctor sollicitudin. Phasellus tempor nibh sed dui sollicitudin, eu egestas elit faucibus. Duis risus risus, suscipit quis ultrices nec, placerat eu nulla. Integer blandit eu nisi ac elementum. Phasellus diam risus, luctus sodales malesuada sit amet, bibendum nec ipsum. Praesent aliquet risus sapien. Donec placerat rutrum ligula, in posuere quam fringilla fermentum. Mauris eget lacinia massa. Maecenas maximus metus iaculis erat scelerisque malesuada at eu mi. Quisque nibh lectus, aliquam bibendum porta interdum, euismod cursus turpis. Donec elementum, mauris placerat dignissim eleifend, risus nibh accumsan nisl, eget vehicula orci neque et orci.
+
+Vivamus vel fringilla justo, at dignissim nibh. Fusce pretium ac sem id fringilla. Donec ac turpis non enim lobortis convallis. Cras gravida mauris et fermentum dapibus. Nullam sodales nunc sem, ac bibendum purus auctor eu. Phasellus in velit eu sem sodales ullamcorper. Nullam facilisis at risus et pulvinar. Sed vel ligula nec nunc aliquet dapibus.</br></br>
+
+Quisque ac lacus in dui rhoncus tempor eget sit amet ex. Vivamus sagittis, dui quis vehicula sagittis, diam ex sollicitudin nibh, vel imperdiet sem dui eget eros. Etiam laoreet bibendum ligula scelerisque porttitor. Curabitur eget ipsum enim. Nam sodales, lectus at interdum placerat, magna elit lacinia mi, vel pretium tellus ligula sit amet metus. Ut vel efficitur velit. Curabitur sed tincidunt urna, ac elementum nisl. Donec eget iaculis arcu. Quisque commodo neque fermentum, dignissim mauris non, facilisis justo. Phasellus sit amet nulla sit amet lacus hendrerit placerat. Duis ac enim et diam aliquet hendrerit. Sed vel sem tellus.
+
+Ut elementum eleifend libero, et lobortis odio sollicitudin non. Morbi et mauris nisl. Ut diam justo, facilisis at nunc eget, lobortis dictum lacus. Nullam sed tortor aliquam, consectetur mi eu, placerat enim. Fusce faucibus est tincidunt mattis vestibulum. Cras quis purus sit amet ante maximus varius. Cras consequat nunc quis odio vestibulum, eu malesuada orci fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce nec dui ultricies, hendrerit velit at, convallis mauris. Nulla maximus augue vel luctus ultricies. Aenean eget dui nec tortor eleifend volutpat.
+ </main>
+ 
+  <footer>
+        <p>&copy; 2024 Product Tracking System. All rights reserved.</p>
+    </footer>
+    
+    <div class="menu-container">
+        <div class="menu-toggle" onclick="toggleMenu()">
+        <span class="menu-icon">&#9776;</span>MENU</div>
+        <div class="menu-items">
+            <a href="/home">Home</a>
+            <a href="/products">Products</a>
+            <a href="/categories">Categories</a>
+            <a href="/store">Stores</a>
+            <a href="/about">About Us</a>
+            <a href="/management">Management</a>
+        </div>
+    </div>
+    
+     <script src="script.js"></script>
+    
+    <script>
+        function toggleMenu() {
+            var menuItems = document.querySelector('.menu-items');
+            menuItems.style.display = (menuItems.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+
+</html>
