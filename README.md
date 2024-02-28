@@ -3,8 +3,11 @@ Product Process Tracking is a web application designed to track and manage the p
 
 #Features
 User Authentication: Users can log in with their username and password.
+
 Home Page: Users can view lists of products, categories, stores, and stocks on the home page.
+
 Management Panel: Administrators can add new products, update existing products, and delete them. They can also manage stock quantities.
+
 Robust Database: PostgreSQL database securely stores the application's data.
 
 #Technologies
